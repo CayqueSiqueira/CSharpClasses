@@ -1,4 +1,9 @@
-﻿bool prossiga = true;
+﻿
+
+
+using BasicsConcepts;
+
+bool prossiga = true;
 
 do
 
@@ -10,41 +15,12 @@ do
 
         Console.WriteLine("Informe o peso");
         float peso = float.Parse(Console.ReadLine());//Console.ReadLine() entrada de dado 
-
         Console.WriteLine("Informe altura");
         float altura = float.Parse(Console.ReadLine());
-
-        float imc = peso / (altura * altura);
-        Console.WriteLine($"o imc é {imc:f1}"); //o :f1 é pra tratar as casas depois da virgula 
-        if (imc < 18.5)
-        {
-            Console.WriteLine("Abaixo do peso");
-            break;
-        }
-        else if (imc < 24.9)
-        {
-            Console.WriteLine("Peso normal");
-            break;
-        }
-        else if (imc < 29.9)
-        {
-            Console.WriteLine("Sobrepeso");
-            break;
-        }
-        else if (imc < 34.9)
-        {
-            Console.WriteLine("Obesidade grau 1 ");
-            break;
-        }
-        else if (imc < 39.9)
-        {
-            Console.WriteLine("Obesidade grau 2");
-            break;
-        }
-        else
-        {
-            Console.WriteLine("Obesidade grau 3");
-        }
+        CalculadoraIMC calculadoraIMC = new CalculadoraIMC();
+        float imc = calculadoraIMC.Calcular(peso, altura);
+        Console.WriteLine(imc);
+        Console.WriteLine(calculadoraIMC.Status(imc));
         prossiga = false;
 
     }
