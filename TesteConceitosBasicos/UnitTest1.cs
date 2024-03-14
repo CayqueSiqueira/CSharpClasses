@@ -31,5 +31,18 @@ namespace TesteConceitosBasicos
             //verificação
             Assert.AreEqual("sobrepeso", status);
         }
+
+        [TestMethod]
+        public void ObterClassificacaoComPesoEAltura()
+        {
+            //cenários
+            float peso = 100f;
+            float altura = 2f;
+            //ação
+            CalculadoraIMC calculadoraStatusComPesoEAltura = new CalculadoraIMC();
+            String statusNovo = calculadoraStatusComPesoEAltura.StatusComPesoEAltura(peso,altura);
+            //verificação
+            Assert.AreEqual("sobrepeso", statusNovo);
+        }
     }
 }
